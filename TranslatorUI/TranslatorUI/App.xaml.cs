@@ -13,5 +13,15 @@ namespace TranslatorUI
     /// </summary>
     public partial class App : Application
     {
+
+        private void ThumbUp_Check(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ThumbUp_Uncheck(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

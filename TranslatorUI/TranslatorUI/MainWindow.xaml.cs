@@ -20,6 +20,7 @@ namespace TranslatorUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Frame MainFrame => mainFrame;
 
         public MainWindow()
         {
@@ -31,6 +32,11 @@ namespace TranslatorUI
         {
             Button btn = sender as Button;
             mainFrame.Navigate(new Uri("Pages/"+btn.Tag.ToString() + ".xaml", UriKind.Relative));
+        }
+
+        public void ToCommu()
+        {
+            mainFrame.Navigate(new Uri("Pages/CommunityPage.xaml", UriKind.Relative));
         }
     }
 

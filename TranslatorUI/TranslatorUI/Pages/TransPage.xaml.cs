@@ -18,9 +18,11 @@ namespace TranslatorUI.Pages
     /// <summary>
     /// TransPage.xaml 的交互逻辑
     /// </summary>
-    public partial class TransPage : UserControl
+    public partial class TransPage : Page
     {
         List<string> language = new List<string>();
+        string content;
+
         public TransPage()
         {
             InitializeComponent();
@@ -31,6 +33,13 @@ namespace TranslatorUI.Pages
             language.Add("French");
             this.languageBeforeTrans.DataContext = language;
             this.languageAfterTrans.ItemsSource = language;
+            this.textBeforeTrans.DataContext = content;
+        }
+
+        private void CommunityTrans_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWin = Window.GetWindow(this) as MainWindow;
+            mainWin.ToCommu();
         }
     }
 

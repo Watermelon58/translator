@@ -28,12 +28,12 @@
                 <Button Tag="TransPage" 
                         Style="{DynamicResource Btn1}" 
                         Grid.Row="0" Click="btnNav_Click" 
-                        Content="翻译" Grid.ColumnSpan="2" Margin="5,5,5,4.8"></Button>
+                        Content="翻译" Grid.ColumnSpan="2" Margin="5,5,0,5"></Button>
                 <Button Tag="CommunityPage" 
                         Style="{DynamicResource Btn1}" 
                         Grid.Row="1" 
                         Click="btnNav_Click" 
-                        Content="社区" Grid.ColumnSpan="2" Margin="5,5.2,5,4.6"></Button>
+                        Content="社区" Grid.ColumnSpan="2" Margin="5,5,0,5"></Button>
             </Grid>
             <Frame Name="mainFrame" 
                    NavigationUIVisibility="Hidden"></Frame>

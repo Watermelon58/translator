@@ -6,16 +6,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         d:DesignHeight="550" d:DesignWidth="800">
-        
+
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="310"/>
+            <ColumnDefinition Width="330"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" 
               Background="{StaticResource PrimaryHueDarkBrush}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -40,39 +42,70 @@
                         Content="我的回答">
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFlatButton}" 
-                        Grid.Column="3">
-                    <materialDesign:PackIcon Kind="PlusCircle" 
-                                             Foreground="{StaticResource PrimaryHueDarkBrush}"
-                                             HorizontalAlignment="Left"
-                                             Height="22"
-                                             Width="22"/>
+                        Grid.Column="3"
+                        FontWeight="Bold"
+                        Content="提问">
                 </Button>
             </StackPanel>
-            <ListBox Grid.Row="1" 
+            <TextBox Grid.Row="1"
+                     materialDesign:HintAssist.Hint="搜索"
+                     Margin="20,0,40,0"
+                     VerticalAlignment="Center" />
+            <Button Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,5,0"
+                    Height="28"
+                    Width="28"
+                  Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                  ToolTip="搜索">
+                    <materialDesign:PackIcon
+                    Kind="Magnify"
+                    Height="20"
+                    Width="20" />
+            </Button>
+            <Button Style="{DynamicResource Btn1}" 
+                    Background="AliceBlue"
+                    Width="50"
+                    Grid.Row="2"
+                    HorizontalAlignment="Left"
+                    Margin="5"
+                    Content="上一页"/>
+            <TextBlock Grid.Row="2"
+                       Text="当前页面："
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+            <Button Style="{DynamicResource Btn1}" 
+                    Background="AliceBlue"
+                    Width="50"
+                    Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Margin="5"
+                    Content="下一页"/>
+            <ListBox Grid.Row="3" 
                      ItemContainerStyle="{StaticResource QuesItem}" 
                      x:Name="QuesItem" 
                      Background="Transparent" 
                      Margin="5"
                      ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListBox.Style>
-                        <Style TargetType="ListBox">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ListBox">
-                                        <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                <ListBox.Style>
+                    <Style TargetType="ListBox">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBox">
+                                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
                                                 BorderThickness="{TemplateBinding BorderThickness}" 
                                                 Padding="0">
-                                            <ScrollViewer Focusable="True">
-                                                <ItemsPresenter />
-                                            </ScrollViewer>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListBox.Style>
-                </ListBox>
+                                        <ScrollViewer Focusable="True">
+                                            <ItemsPresenter />
+                                        </ScrollViewer>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.Style>
+            </ListBox>
         </Grid>
         <Grid Grid.Column="1" Background="AliceBlue">
             <Grid.RowDefinitions>
@@ -86,25 +119,74 @@
                         Grid.Row="0"
                         BorderBrush="{StaticResource PrimaryHueDarkBrush}"
                         BorderThickness="2">
-                <Button Grid.Row="0"
+                <Grid>
+                    <Button Grid.Row="0"
                         HorizontalAlignment="Right"
                         Margin="0,0,10,0"
                         Height="40"
                         Width="40"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
-                            ToolTip="MaterialDesignFloatingActionButton">
-                    <materialDesign:PackIcon
+                            ToolTip="登陆">
+                        <materialDesign:PackIcon
                                 Kind="User"
                                 Height="30"
                                 Width="30" />
-                </Button>
+                    </Button>
+
+                    <!--<TextBlock Name="userInfo"
+                               Grid.Row="0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"
+                               Margin="0,0,10,0"
+                               Width="150"
+                               TextAlignment="Right"
+                               Text="你好哇"
+                               FontSize="15"
+                               Foreground="#808080">
+                    </TextBlock>
+                    <TextBlock
+                               Grid.Row="0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Margin="0,0,10,0"
+                               Width="150"
+                               TextAlignment="Right"
+                               Text="你好哇"
+                               FontSize="15"
+                               Foreground="#808080">
+                    </TextBlock>-->
+                    <TextBlock Name="userInfo"
+                               Grid.Row="0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"
+                               Margin="10"
+                               Width="150"
+                               TextAlignment="Right"
+                               Text="用户名："
+                               FontSize="13"
+                               Visibility="Hidden"
+                               Foreground="Black">
+                    </TextBlock>
+                    <TextBlock Name="coin"
+                               Grid.Row="0"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               Width="150"
+                               Margin="10"
+                               TextAlignment="Right"
+                               FontSize="13"
+                               Text="点数："
+                               Visibility="Hidden"
+                               Foreground="Black">
+                    </TextBlock>
+                </Grid>
             </Border>
             <Border     Margin="5"
                         Padding="0"
                         Grid.Row="1"
                         BorderBrush="{StaticResource PrimaryHueDarkBrush}"
+                        Background="{StaticResource PrimaryHueDarkBrush}"
                         BorderThickness="2">
-
                 <Grid Margin="5"
                       Name="ques_info">
                     <Grid.ColumnDefinitions>
@@ -113,7 +195,8 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0"
-                      Background="White">
+                      Background="{StaticResource PrimaryHueLightBrush}"
+                          Margin="5">
                         <TextBlock Text="{Binding Content}"
                            VerticalAlignment="Top"
                            HorizontalAlignment="Left"
@@ -133,7 +216,7 @@
                            HorizontalAlignment="Right"
                            Margin="5"/>
                     </Grid>
-                    <Border Background="{StaticResource PrimaryHueDarkBrush}" 
+                    <Border Background="{StaticResource PrimaryHueLightBrush}" 
                             Grid.Column="1"
                                     Width="40" 
                                     Height="40" 
@@ -141,7 +224,7 @@
                                     HorizontalAlignment="Center"
                             Margin="5,5,0,5">
                         <TextBlock FontSize="23" 
-                                               Foreground="White" 
+                                               Foreground="{StaticResource PrimaryHueDarkBrush}"
                                                VerticalAlignment="Center" 
                                                HorizontalAlignment="Center">
                             <TextBlock.Style>
@@ -208,7 +291,7 @@
                 </Grid>
             </Border>
         </Grid>
-        
+
     </Grid>
 </Page>
 

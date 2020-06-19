@@ -23,6 +23,7 @@ namespace TranslatorUI.Pages
     {
         public List<Question> QuestionList { get; set; }
         public List<Answer> AnswerList { get; set; }
+        
         public CommunityPage()
         {
             InitializeComponent();
@@ -107,6 +108,7 @@ namespace TranslatorUI.Pages
         public string UserId { get; set; }
         public int QuestionId { get; set; }
         public bool IsMine { get; set; }
+        public int ThumbUpNum { get; set; }
         public Answer()
         {
             AnswerId = 100;
@@ -116,6 +118,7 @@ namespace TranslatorUI.Pages
             IsMine = true;
             UserId = "200";
             QuestionId = 1;
+            ThumbUpNum = 50;
         }
     }
 }

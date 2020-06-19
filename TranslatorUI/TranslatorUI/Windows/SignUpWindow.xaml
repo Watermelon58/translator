@@ -34,10 +34,11 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="30"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="108*"/>
+                    <ColumnDefinition Width="29*"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
-                <materialDesign:PackIcon Grid.Column="1" Kind="ShieldKey" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <materialDesign:PackIcon Grid.Column="1" Kind="ShieldKey" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7.6,15,6.8,15.4"/>
                 <PasswordBox Grid.Column="2" 
                              Padding="10 0" 
                              x:Name="FloatingPasswordBox" 
@@ -47,7 +48,7 @@
                              materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource PrimaryHueMidBrush}"                                  
                              materialDesign:HintAssist.FloatingScale="0.6"                                  
                              Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"                                   
-                             FontSize="20" />
+                             FontSize="20" Grid.ColumnSpan="2" Margin="0.2,0,0.4,0.4" />
             </Grid>
             <Grid Height="50" 
                   VerticalAlignment="Center" 
